@@ -19,13 +19,15 @@ Python 3.x
 
 Opencv 3.x or above ( pip install opencv-python )
 
-# Usage and code setting
-
+# Code setting
+ 
 Keep 30 days or can edit from program (eg: Keep_Data = 30) on motion_detector.py line code 17.
 
 Change monitor display resolution (eg: Display_Resolution = (width, height)) on motion_detector.py line code 18
 
 Change record video frame (eg: Video_FPS = 20) on motion_detector.py line code 20
+
+# Usage
 
 python motion_detector.py with required arguments
 
