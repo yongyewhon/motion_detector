@@ -10,6 +10,10 @@ Keep 30 days or can edit from program (eg: Keep_Data = 30) on line code 17.
 
 Can set the sensitivity of minimum motion area
 
+# Installation
+
+pip install imutils
+
 # Requirement
 Python 3.x
 
