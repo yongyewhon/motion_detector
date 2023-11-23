@@ -3,8 +3,11 @@ Save video with time stamp on motion detect (Python).
 
 # Program features
 Python implementation to stream camera feed from OpenCV videoCapture via RTSP and record on motion detect.
+
 Motion detected log record with time stamp to track on the motion occur from the "record: folder.
+
 Keep 30 days or can edit from program (eg: Keep_Data = 30) on line code 17.
+
 Can set the sensitivity of minimum motion area
 
 # Requirement
