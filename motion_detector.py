@@ -21,7 +21,6 @@ Video_FPS = 20
 Motion_Start = True
 Motion_End = False
 Newline_Log = False
-New_Frame = False
 Motion_Refresh = 0
 CurrentDate = datetime.datetime.now()
 Refresh_Time = CurrentDate.strftime("%H;%M;%S")
@@ -157,6 +156,11 @@ while(ret):
         #cv2.imshow("previous_frame", previous_frame)
         #cv2.waitKey(1)
         continue
+    elif Motion_Refresh >= 60:
+        Motion_Refresh = 0
+        previous_frame = frame.copy()
+        #cv2.imshow("previous_frame", previous_frame)
+        #cv2.waitKey(1)
     # check motion
     if motion_detect(frame, previous_frame, motion_area=args["area"]):
         text = "Motion"
@@ -164,9 +168,6 @@ while(ret):
         if Refresh_Time != Current_Time:
             Refresh_Time = Current_Time
             Motion_Refresh += 1
-            if Motion_Refresh >= 60:
-                Motion_Refresh = 0
-                New_Frame = True
         if Motion_Start is True:
             Create_File()
             f = open(File_Name, "a")
@@ -193,14 +194,10 @@ while(ret):
             Motion_End = False
             Newline_Log = True
         Motion_Refresh = 0
-    if New_Frame is True:
-        previous_frame = frame.copy()
-        #cv2.imshow("previous_frame", previous_frame)
-        #cv2.waitKey(1)
-        New_Frame = False
+
     cv2.putText(display_frame, datetime.datetime.now().strftime("%A %d %B %Y %H:%M:%S%p"),
         (10, live_frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, Video_Resolution[0]/1500, (0, 0, 255), 1)
-    cv2.putText(display_frame, text, (10, 40), cv2.FONT_HERSHEY_SIMPLEX, Video_Resolution[0]/1000, (0, 0, 255), 2)
+    cv2.putText(display_frame, text, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, Video_Resolution[0]/1000, (0, 0, 255), 2)
     display_frame = cv2.resize(display_frame, Display_Resolution, interpolation=cv2.INTER_AREA)
     cv2.imshow("Security Live Feed", display_frame)
     key = cv2.waitKey(1) & 0xFF
