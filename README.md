@@ -6,7 +6,7 @@ Python implementation to stream camera feed from OpenCV videoCapture via RTSP an
 
 Motion detected log record with time stamp to track on the motion occur from the "record" folder.
 
-Keep 30 days or can edit from program (eg: Keep_Data = 30) on line code 17.
+Keep 30 days or can edit from program.
 
 Can set the sensitivity of minimum motion area
 
@@ -19,7 +19,13 @@ Python 3.x
 
 Opencv 3.x or above ( pip install opencv-python )
 
-# Usage
+# Usage and code setting
+
+Keep 30 days or can edit from program (eg: Keep_Data = 30) on motion_detector.py line code 17.
+
+Change monitor display resolution (eg: Display_Resolution = (width, height)) on motion_detector.py line code 18
+
+Change record video frame (eg: Video_FPS = 20) on motion_detector.py line code 20
 
 python motion_detector.py with required arguments
 
