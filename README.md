@@ -21,6 +21,7 @@ python motion_detector.py with required arguments
 
 Try save_rtsp_stream.py --help to view the arguments
 
+
 optional arguments:
   -h, --help            show this help message and exit
   -v VIDEO, --video VIDEO
@@ -28,6 +29,7 @@ optional arguments:
   -a AREA, --area AREA  minimum area size (default=800)
   -f FORMAT, --format FORMAT
                         video file format (1=mp4v, 2=MJPG)
+
 
 The default save video format is mp4v and keep the same resolution with the streaming video
 
