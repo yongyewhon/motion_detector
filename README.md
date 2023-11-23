@@ -23,10 +23,14 @@ Try save_rtsp_stream.py --help to view the arguments
 
 
 optional arguments:
+
   -h, --help            show this help message and exit
+  
   -v VIDEO, --video VIDEO
                         path to the video file
+                        
   -a AREA, --area AREA  minimum area size (default=800)
+  
   -f FORMAT, --format FORMAT
                         video file format (1=mp4v, 2=MJPG)
 
