@@ -52,9 +52,9 @@ def Delete_Old_Record(day):
 def Create_File():
     global File_Name
     CurrentDate = datetime.datetime.now()
-    FolderDate = CurrentDate.strftime("%Y-%m-%d")
-    File_Name = "./record/" + FolderDate + "/" + CurrentDate.strftime("%Y-%m-%d") + ".csv"
-    if not os.path.exists("./record/" + FolderDate): os.makedirs("./record/" + FolderDate)
+    FolderDate = "./record/" +CurrentDate.strftime("%Y-%m-%d")
+    if not os.path.exists(FolderDate): os.makedirs(FolderDate)
+    File_Name = FolderDate + "/" + CurrentDate.strftime("%Y-%m-%d") + ".csv"
     if os.path.exists(File_Name): flag_file = True
     else:
         print("The file does not exist")
@@ -68,10 +68,10 @@ def Create_File():
 def Create_VideoFile():
     global Video_NewDate, out
     CurrentDate = datetime.datetime.now()
-    FolderDate = CurrentDate.strftime("%Y-%m-%d")
-    if not os.path.exists("./record/" + FolderDate): os.makedirs("./record/" + FolderDate)
+    FolderDate = "./record/" + CurrentDate.strftime("%Y-%m-%d")
+    if not os.path.exists(FolderDate): os.makedirs(FolderDate)
     if out is None or out.isOpened() is False:
-        Video_Name = "./record/" + FolderDate + "/" + CurrentDate.strftime("%Y-%m-%d_%H;%M;%S") + ".avi" 
+        Video_Name = FolderDate + "/" + CurrentDate.strftime("%Y-%m-%d_%H;%M;%S") + ".avi" 
         out = cv2.VideoWriter(Video_Name, fourcc, Video_FPS, Video_Resolution) 
         print("Start video file")
     else:
@@ -79,7 +79,7 @@ def Create_VideoFile():
         if Video_NewDate != Video_CurrentDate:
             Video_NewDate = Video_CurrentDate
             Delete_Old_Record(1)
-            Video_Name = "./record/" + FolderDate + "/" + Video_CurrentDate + ".avi"
+            Video_Name = FolderDate + "/" + Video_CurrentDate + ".avi"
             print(Video_Name)
             if out.isOpened() is True:
                 out.release()
